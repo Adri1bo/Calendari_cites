@@ -93,7 +93,7 @@ if atencio=="Presencial":
     
     subject = ""
     message = st.text_input("Afegeix una petita descripció:")
-    message = nom+"\n"+correu_electronic+"\n"+municipi+"\n"+motiu+"\n"+message+"\n"+lloc_sessió+ " pel "+dia+" de "+mes+" a les "+franja_seleccionada
+    message = nom+"\n"+correu_electronic+"\n"+municipi+"\n"+motiu+"\n"+message+"\n"+lloc_sessió+ " pel "+dia_escollit+" a les "+franja_seleccionada
 
 elif atencio=="Correu":
     subject = st.text_input("Assumpte:")
