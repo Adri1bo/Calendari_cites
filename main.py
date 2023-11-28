@@ -130,6 +130,9 @@ if st.button("Enviar Correu"):
         with smtplib.SMTP_SSL("smtp.gmail.com",465,context = context) as smtp:
             smtp.login(email_sender,password)
             smtp.sendmail(email_sender,email_receiver,em.as_string())
+        with smtplib.SMTP_SSL("smtp.gmail.com",465,context = context) as smtp:
+            smtp.login(email_sender,password)
+            smtp.sendmail(email_sender,email_receiver,em.as_string())
         st.warning("El correu s'ha enviat, Important rebrà una confirmació de l'hora", icon="⚠️")
     except Exception as e:
         st.error("Hi ha hagut un error en enviar la sol·licitud, posis en contacte amb l'oficina a través del correu energia@altcamp.cat")
