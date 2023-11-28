@@ -14,7 +14,7 @@ import pandas as pd
 
 
 #carreguem dades
-@st.cache_data(ttl="1d")
+@st.cache_data(ttl=100)
 def load_data(sheets_url):
     xlsx_url = sheets_url.replace("/edit#gid=", "/export?format=xlsx&gid=")
     return pd.read_excel(xlsx_url)
@@ -130,7 +130,7 @@ if st.button("Enviar Correu"):
         with smtplib.SMTP_SSL("smtp.gmail.com",465,context = context) as smtp:
             smtp.login(email_sender,password)
             smtp.sendmail(email_sender,email_receiver,em.as_string())
-        st.success("El correu s'ha enviat correctament, rebrà una confirmació de l'hora")
+        st.warning("El correu s'ha enviat, Important rebrà una confirmació de l'hora", icon="⚠️")
     except Exception as e:
         st.error("Hi ha hagut un error en enviar la sol·licitud, posis en contacte amb l'oficina a través del correu energia@altcamp.cat")
 
